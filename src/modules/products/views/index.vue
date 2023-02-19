@@ -1,19 +1,20 @@
 <script>
 export default {
   name: "Products",
-  data: () => ({
-    partnerDetails: [],
-  }),
+  computed: {
+    partnersData() {
+      return this.$store.getters.allPartnersData;
+    },
+  },
   mounted() {
-    const check = this.store.getters["showPartnerData"];
-    console.log(check)
+
   },
 };
 </script>
 
 <template>
   <div>
-    <h1></h1>
+    <h1>{{ partnersData }}</h1>
   </div>
 </template>
 

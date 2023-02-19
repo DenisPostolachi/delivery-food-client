@@ -16,7 +16,8 @@ export default {
   methods: {
     openCurrentRestaurant() {
       //TODO in real application there should be an endpoint smt. like /partner-details/{partner} to get this data
-      this.store.dispatch("addPartnerData", this.$props.partnerData);
+      this.$store.dispatch('setPartnersData', this.$props.partnerData)
+
       this.$router.push({
         name: "products",
         params: { product: this.productsUrlAlias },
