@@ -7,7 +7,15 @@ export default {
       required: true,
     },
   },
-  methods: {},
+  data: () => ({
+    selectedProducts: [],
+  }),
+  methods: {
+    addToCart(productData) {
+      this.$store.commit("setProducts", productData);
+      this.$store.dispatch('addProductToCart', productData)
+    },
+  },
 };
 </script>
 
@@ -28,7 +36,10 @@ export default {
         </div>
       </div>
       <div class="card-buttons">
-        <button class="button button-primary button-add-cart">
+        <button
+          @click="addToCart(productData)"
+          class="button button-primary button-add-cart"
+        >
           <span class="button-card-text">В корзину</span>
           <span class="button-cart-svg"></span>
         </button>

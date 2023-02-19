@@ -17,7 +17,7 @@ export default {
     openCurrentRestaurant() {
       //TODO in real application there should be an endpoint smt. like /partner-details/{partner} to fetch this data
       //after refresh this data will disappear
-      this.$store.dispatch('setPartnersData', this.$props.partnerData)
+      this.$store.dispatch("setPartnersData", this.$props.partnerData);
 
       this.$router.push({
         name: "products",

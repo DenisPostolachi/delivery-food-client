@@ -1,18 +1,23 @@
 <script>
 import AuthModal from "@/components/modals/auth/Auth.vue";
+import Cart from "@/components/modals/products/Cart.vue";
 
 export default {
   name: "NavBar",
-  components: { AuthModal },
+  components: { Cart, AuthModal },
 
   data: () => ({
     logo: require("@/img/icon/logo.svg"),
     authModalStatus: false,
+    cartModalStatus: false,
   }),
 
   methods: {
     toggleLoginModal() {
       this.authModalStatus = !this.authModalStatus;
+    },
+    toggleCartModal() {
+      this.cartModalStatus = !this.cartModalStatus;
     },
   },
 };
@@ -40,7 +45,11 @@ export default {
           <span class="button-auth-svg"></span>
           <span class="button-text">Войти</span>
         </button>
-        <button class="button button-cart" id="cart-button">
+        <button
+          @click="toggleCartModal"
+          class="button button-cart"
+          id="cart-button"
+        >
           <span class="button-cart-svg"></span>
           <span class="button-text">Корзина</span>
         </button>
@@ -52,6 +61,9 @@ export default {
     </header>
     <div v-if="authModalStatus">
       <AuthModal @close="toggleLoginModal" />
+    </div>
+    <div v-if="cartModalStatus">
+      <Cart @close="toggleCartModal" />
     </div>
   </div>
 </template>

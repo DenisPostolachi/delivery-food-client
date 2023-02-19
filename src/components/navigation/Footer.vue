@@ -12,7 +12,9 @@ export default {
   <footer class="footer">
     <div class="container">
       <div class="footer-block">
-        <img src="@/img/icon/logo.svg" alt="logo" class="logo footer-logo" />
+        <router-link to="/" class="logo">
+          <img src="@/img/icon/logo.svg" alt="logo" class="logo footer-logo" />
+        </router-link>
         <nav class="footer-nav">
           <a href="#" class="footer-link">Ресторанам </a>
           <a href="#" class="footer-link">Курьерам</a>

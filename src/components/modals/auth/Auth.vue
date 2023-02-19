@@ -3,7 +3,7 @@ export default {
   name: "AuthModal",
   methods: {
     closeModal() {
-      this.$emit('close')
+      this.$emit("close");
     },
   },
 };
