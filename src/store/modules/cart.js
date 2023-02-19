@@ -13,7 +13,6 @@ export default {
         context.commit("pushProductToCart", payload);
       } else {
         context.commit("incrementItemQuantity", cartItem);
-        context.commit("addPriceToRepeatedItems", cartItem);
       }
     },
   },
@@ -33,13 +32,6 @@ export default {
       state.cart.map((item) => {
         if (item.id === cartItem.id) {
           return (item.quantity += 1);
-        }
-      });
-    },
-    addPriceToRepeatedItems(state, cartItem) {
-      state.cart.map((item) => {
-        if (item.id === cartItem.id) {
-          return (item.price += cartItem.price);
         }
       });
     },
