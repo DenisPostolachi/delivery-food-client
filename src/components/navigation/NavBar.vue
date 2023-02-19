@@ -1,10 +1,20 @@
 <script>
+import AuthModal from "@/components/modals/auth/Auth.vue";
+
 export default {
   name: "NavBar",
+  components: { AuthModal },
 
   data: () => ({
     logo: require("@/img/icon/logo.svg"),
+    authModalStatus: false,
   }),
+
+  methods: {
+    toggleLoginModal() {
+      this.authModalStatus = !this.authModalStatus;
+    },
+  },
 };
 </script>
 
@@ -23,7 +33,10 @@ export default {
       </label>
       <div class="buttons">
         <span class="user-name"></span>
-        <button class="button button-primary button-auth">
+        <button
+          @click="toggleLoginModal"
+          class="button button-primary button-auth"
+        >
           <span class="button-auth-svg"></span>
           <span class="button-text">Войти</span>
         </button>
@@ -37,6 +50,9 @@ export default {
         </button>
       </div>
     </header>
+    <div v-if="authModalStatus">
+      <AuthModal @close="toggleLoginModal" />
+    </div>
   </div>
 </template>
 
@@ -132,6 +148,10 @@ export default {
   background-repeat: no-repeat;
 }
 
+.button-cart {
+  margin: 0 5px;
+}
+
 .button-primary .button-cart-svg {
   background-color: #fff;
 }
@@ -142,11 +162,6 @@ export default {
 
 .button-primary:hover .button-cart-svg {
   background-color: #595959;
-}
-
-.button-cart {
-  display: none;
-  margin: 0 5px;
 }
 
 .button-out {
