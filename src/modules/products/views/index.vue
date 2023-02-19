@@ -1,20 +1,20 @@
 <script>
 export default {
   name: "Products",
+  data: () => ({
+    partnerDetails: [],
+  }),
   mounted() {
-    console.log(this.$route.params.product)
-  }
-}
+    const check = this.store.getters["showPartnerData"];
+    console.log(check)
+  },
+};
 </script>
 
 <template>
-<div>
-  <h1></h1>
-</div>
+  <div>
+    <h1></h1>
+  </div>
 </template>
 
-
-
-<style scoped>
-
-</style>
+<style scoped></style>

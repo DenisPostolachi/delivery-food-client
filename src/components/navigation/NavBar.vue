@@ -11,9 +11,9 @@ export default {
 <template>
   <div class="container">
     <header class="header">
-      <a class="logo">
+      <router-link to="/" class="logo">
         <img :src="logo" alt="Logo" />
-      </a>
+      </router-link>
       <label class="address">
         <input
           type="text"
