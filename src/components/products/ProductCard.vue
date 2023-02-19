@@ -13,7 +13,7 @@ export default {
   methods: {
     addToCart(productData) {
       this.$store.commit("setProducts", productData);
-      this.$store.dispatch('addProductToCart', productData)
+      this.$store.dispatch("addProductToCart", productData);
     },
   },
 };

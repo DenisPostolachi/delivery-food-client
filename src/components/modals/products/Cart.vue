@@ -36,7 +36,12 @@ export default {
           <span class="food-name">{{ cartItem.name }}</span>
           <strong class="food-price">{{ cartItem.price }} ₽</strong>
           <div class="food-counter">
-            <button @click="removeOrderQuantity(cartItem.id)" class="counter-button">-</button>
+            <button
+              @click="removeOrderQuantity(cartItem.id)"
+              class="counter-button"
+            >
+              -
+            </button>
             <span class="counter">{{ cartItem.quantity }}</span>
             <button
               @click="addOrderQuantity(cartItem.id)"
@@ -178,5 +183,4 @@ export default {
   font-size: 20px;
   line-height: 23px;
 }
-
 </style>

@@ -6,10 +6,13 @@ export default {
   components: { ProductCard },
   data: () => ({
     products: [],
+    partners: require("@/db/partners.json"),
   }),
   computed: {
     partnersData() {
-      return this.$store.getters.allPartnersData;
+      return this.partners.find(
+        (item) => item.products === `${this.$route.params.product}.json`
+      );
     },
   },
   async mounted() {
