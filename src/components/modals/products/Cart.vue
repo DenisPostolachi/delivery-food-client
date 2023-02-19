@@ -6,15 +6,19 @@ export default {
     cartData() {
       return this.$store.getters.cartData;
     },
-    cartDataSum() {
-      return this.cartData.map((element) => {
-        return element.price;
-      });
+    cartSumData() {
+      return this.$store.getters.cartItemsTotalPrice;
     },
   },
   methods: {
     closeModal() {
       this.$emit("close");
+    },
+    addOrderQuantity(id) {
+      this.$store.commit("increaseProductsQuantity", id);
+    },
+    removeOrderQuantity(id) {
+      this.$store.commit("decreaseProductsQuantity", id);
     },
   },
 };
@@ -32,14 +36,19 @@ export default {
           <span class="food-name">{{ cartItem.name }}</span>
           <strong class="food-price">{{ cartItem.price }} ₽</strong>
           <div class="food-counter">
-            <button class="counter-button">-</button>
+            <button @click="removeOrderQuantity(cartItem.id)" class="counter-button">-</button>
             <span class="counter">{{ cartItem.quantity }}</span>
-            <button class="counter-button">+</button>
+            <button
+              @click="addOrderQuantity(cartItem.id)"
+              class="counter-button"
+            >
+              +
+            </button>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <span class="modal-pricetag">1250 ₽</span>
+        <span class="modal-pricetag">{{ cartSumData }} ₽</span>
         <div class="footer-buttons">
           <button class="button button-primary">Оформить заказ</button>
           <button @click="closeModal" class="button clear-cart">Отмена</button>
