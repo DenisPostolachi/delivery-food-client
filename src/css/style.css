@@ -1,8 +1,12 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=cyrillic");
 
-html,
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Roboto", sans-serif;
+  padding-top: 44px;
 }
 
 a,
@@ -14,4 +18,8 @@ button {
 .container {
   max-width: 1200px;
   margin: auto;
+}
+
+.hide {
+  display: none;
 }
